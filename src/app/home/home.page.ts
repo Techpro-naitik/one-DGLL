@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from '../Service/service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public service:ServiceService) {}
+
+  getApiFnCall() {
+    this.service.getLiveApiUrl().subscribe((data)=>{
+      console.log(data)
+    })
+  }
 
 }
